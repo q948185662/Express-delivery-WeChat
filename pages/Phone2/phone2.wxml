@@ -1,0 +1,8 @@
+
+
+<label>您已经绑定过手机啦</label>
+
+<view style=" width:80%;height:10%"></view>
+
+
+<view class="btn-re" bindtap='unbindPhone'>点击解绑</view>

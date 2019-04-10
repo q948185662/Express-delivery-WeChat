@@ -1,0 +1,40 @@
+<!--地图容器-->
+<!--longitude及latitude为设置为调转到指定地址位置，默认不显示-->
+<map id="myMap" 
+  markers="{{markers}}" 
+  style="width:100%;height:300px;" 
+  longitude="{{poi.longitude}}" 
+  latitude="{{poi.latitude}}" 
+  polyline="{{polyline}}" 
+  scale='16' show-location>
+</map>
+<!--form表单-->
+<form bindsubmit="formSubmit" style='height:60%'>
+  <!--地址描述输入框,示例：北京市海淀区彩和坊路海淀西大街74号-->
+  <view class='rowStyle color54 fontSize12' style='display:flex'>
+    <text style='width:85px;text-align:center'>出发：</text>
+    <view>{{start}}</view>
+  </view>
+  <view class='rowStyle color54 fontSize12' style='display:flex'>
+    <text style='width:85px;text-align:center '>目的地：</text>
+    <view>{{final}}</view>
+  </view>
+  <!--提交表单数据-->
+  <view>
+    <view class="flex-style">
+      <view class="flex-item active" bindtouchstart="goToCar">驾车</view>
+      <view class="flex-item" bindtouchstart="goToWalk">步行</view>
+      <view class="flex-item" bindtouchstart="goToBus">公交</view>
+      <view class="flex-item" bindtouchstart="goToRide">骑行</view>
+    </view>
+    <button class='color12' form-type="submit" bindtap="geo" style='width:30%;'>开始导航 </button>
+    <view >
+    <view class="text">{{distance}}</view>
+    <view class="text">{{cost}}</view>
+</view>
+  </view>
+</form>
+
+<scroll-view class='sview' wx:for="{{steps}}" wx:for-item="i">
+    {{i.instruction}}
+</scroll-view>

@@ -1,0 +1,42 @@
+<view style=" width:100%;height:5%"></view>
+
+<view class="input1">
+<view style=" width:10%;height:100%"></view>
+
+<view class="input-phone">
+<input  type="number" bindinput='usernuminput' placeholder="  请输入手机号" />
+</view>
+
+<view style=" width:10%;height:100%"></view>
+</view>
+
+
+<view style=" width:100%;height:5%"></view>
+
+<view class="input1">
+<view style=" width:10%;height:100%"></view>
+
+<view class="input-number">
+<input type="number" bindinput='userpasswordinput' placeholder="  请输入验证码" />
+ <button class="btn-get" type="default"   size="mini" bindtap='bindphone' disabled='{{disabled}}'> {{time}} </button>
+</view>
+
+<view style=" width:10%;height:100%"></view>
+</view>
+
+
+
+
+
+<view style=" width:100%;height:10%"></view>
+
+
+<view class="confirm">
+<view style=" width:10%;height:100%"></view>
+
+<view class='btn-confirm' bindtap='checkphone'>
+ 绑定
+</view>
+
+<view style=" width:10%;height:100%"></view>
+</view>

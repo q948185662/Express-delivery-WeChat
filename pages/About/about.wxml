@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+ <canvas style="width: 400px; height: 500px;border:1px;position:absolute;top:0px;" canvas-id="textA"
+  disable-scroll=true
+  bindtouchstart="bindtouchstart"
+  bindtouchmove="bindtouchmove"  
+  bindtouchend="bindtouchend"
+  bindtap="bindtap"
+  bindlongpress="bindlongpress"
+  ></canvas>
+</view>
+
+<view class="text_a">
+  <view class='intro' style='width:75%'>
+    <text class="text">城市之蜂。</text>
+  </view>
+
+
+ 
+</view>
+
+

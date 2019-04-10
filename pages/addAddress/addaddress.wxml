@@ -1,0 +1,44 @@
+
+<view class="view-area">
+
+<view class="view-item">
+  <view style="  width:4%;height:100%"></view>
+  <view class="view-item1">                                                                   
+    <text>联系人</text>
+    <view style="width:5%;height:100%"></view>
+    <input type="test" placeholder="姓名" bindinput='nameInput'></input>
+  </view>
+  <view style="  width:4%;height:100%"></view>  
+
+</view>
+
+<view class="view-item">   
+  <view style="  width:4%;height:100%"></view>
+  <view class="view-item1">                                                                   
+    <text>手机</text>
+    <view style="width:10%;height:100%"></view>
+    <input type="number" placeholder="手机号码" bindinput='phoneInput'></input>
+  </view>
+  <view style="  width:4%;height:100%"></view>  
+
+</view>
+
+<view class="view-item">  
+  <view style="  width:4%;height:100%"></view>
+  <view class="view-item1">                                                                   
+    <text>地址</text>
+    <view style="width:10%;height:100%"></view>
+    <!-- <view style="width:70%;height:100%;text-align:center" placeholder="地址信息">{{address}}</view> -->
+
+    <input style="width:70%;height:100%" type="test" placeholder="选择地址" bindinput='addressInput' value='{{address}}'></input>
+     <image class="image-arrow" src="../images/地图.png" mode="scaleToFill" bindtap='selectAdd'></image>
+    
+  </view>
+  <view style="  width:4%;height:100%"></view>  
+
+</view>
+
+</view>
+
+
+<view class="add" bindtap='addAddress'>确定</view>

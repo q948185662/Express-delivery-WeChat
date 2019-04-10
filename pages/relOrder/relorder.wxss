@@ -1,0 +1,121 @@
+page{
+  background-color: #f5f5f5;
+}
+.rowstyle{
+  flex-direction: row;
+}
+.colstyle{
+  flex-direction: column;
+}
+.right {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        
+}
+.address {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.personinfo{
+  background-color: #fff;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.fontsize14{
+  font-size: 14px;
+  
+}
+.flexItem{
+  display: flex;
+}
+
+.mt20{
+  margin-top: 20rpx;
+}
+
+.mod-a{
+  padding: 0 20rpx;
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.mod{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  padding: 0 20rpx;
+}
+
+.t-address, .t-sign-time, .t-time{
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.value{
+  color: #b2b2b2;
+}
+.t-sign-time .value{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mod-big{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 250rpx;
+  padding: 0 20rpx;
+  position:relative;
+}
+.chnumber{
+  position:absolute;
+  right:0;
+  bottom:0;
+  color:#b2b2b2;
+ text-align:right;
+}
+
+.arrow-r{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+
+.Submit{
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  color: #676767;
+}
+
+.submit-btn {
+background:#fff;
+overflow:hidden;
+}
+
+.button {
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 16px;
+  background: #fccf1a;
+  color: #000;
+  margin: 30rpx auto;
+  border-radius: 50px;
+  border: 1rpx solid #b2b2b2
+}
+page{
+  height: 100%;
+}

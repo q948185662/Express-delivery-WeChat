@@ -1,0 +1,40 @@
+
+<view class="view-area">
+
+<view class="view-item">
+  <view style="  width:4%;height:100%"></view>
+  <view class="view-item1">                                                                   
+    <text>联系人</text>
+    <view style="width:5%;height:100%"></view>
+    <input type="test" placeholder="{{additem.username}}" bindinput='nameInput'></input>
+  </view>
+  <view style="  width:4%;height:100%"></view>  
+
+</view>
+
+<view class="view-item">   
+  <view style="  width:4%;height:100%"></view>
+  <view class="view-item1">                                                                   
+    <text>手机</text>
+    <view style="width:10%;height:100%"></view>
+    <input type="number" placeholder="{{additem.userphone}}" bindinput='phoneInput'></input>
+  </view>
+  <view style="  width:4%;height:100%"></view>  
+
+</view>
+
+<view class="view-item">  
+  <view style="  width:4%;height:100%"></view>
+  <view class="view-item1">                                                                   
+    <text>地址</text>
+    <view style="width:10%;height:100%"></view>
+    <input type="test" placeholder="{{additem.address}}" bindinput='addressInput'></input>
+  </view>
+  <view style="  width:4%;height:100%"></view>  
+
+</view>
+
+</view>
+
+
+<view class="add" bindtap='modifyAddress'>确定</view>

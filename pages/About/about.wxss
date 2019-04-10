@@ -1,0 +1,30 @@
+.text{
+  font-size: 38rpx;
+  color: black;
+}
+
+.text_a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.container{
+  background-color: #fccf1a;
+}
+
+.copyright{
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+}
+page{
+  height: 40%;
+  overflow:hidden;
+}
+.intro{
+  position: fixed;
+  top: 45%
+}

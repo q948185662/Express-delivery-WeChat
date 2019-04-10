@@ -1,0 +1,19 @@
+page{
+background-color: #fff;
+display: flex;
+flex-direction: column;
+height: 100%;
+align-items: center;
+justify-content: center
+}
+
+.btn-re{
+  border-radius: 30rpx;
+  height:90rpx;
+  background:#FCCF1A;
+  width: 80%;
+  display: flex;  
+  flex-direction: row;  
+  justify-content: center;  
+  align-items: center;
+}

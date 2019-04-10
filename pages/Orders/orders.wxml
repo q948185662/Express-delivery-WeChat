@@ -1,0 +1,243 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">我发布的</view>
+  <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">我接受的</view>
+  <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">发布完成</view>
+  <view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">接受完成</view>
+</view>
+
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+  <swiper-item>
+    <scroll-view scroll-y="true" class="tableView" style='height:{{scrollHeight}}px'>
+      <view class='view1' wx:for="{{relOrderList}}" data-index='{{index}}' bindtap='showButton'>
+        <view data-items='{{item}}'>
+          <view class="flexItem rowStyle tableViewCellHeader heightAndWidth">
+            <image class="orderImage marginLeft12" src="../images/dingdan.png"></image>
+            <label class="color54 fontSize12">订单编号: {{ item.orderId }}</label>
+          </view>
+
+          <view class="flexItem rowStyle personInfo">
+            <view class="flexItem rowStyle marginLeft12 centers">
+              <image class="userHeader" src="{{ item.receiverAvatarUrl }}"></image>
+              <label class="color54 fontSize12">{{ item.receiverName }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginRight12 centers" catchtap="callEvent">
+              <image class="call" src="../images/call.png"></image>
+              <label class="color54 fontSize12">{{ item.receiverPhone }}</label>
+            </view>
+          </view>
+
+          <view class=" heightAndWidth flexItem columnStyle tableViewCell">
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">快递站点</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.start }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">收货地址</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.receiverAddress }} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">大小金额</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.size[0] }}{{item.size[1]}},¥{{item.money}} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">下单时间</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.createdAt }}</label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12 ">订单状态</label>
+              <label class="colorred fontSize12 marginRight12">{{ item.orderStatus }}</label>
+            </view>
+          </view>
+
+          <view class="flexItem rowStyle centers orderStatus ">
+            <label class="color54 fontSize12">备注</label>
+            <image class="statusImage"></image>
+            <label class="statusText fontSize14">{{ item.remark }}</label>
+          </view>
+          <view class="flexItem rowStyle centers btn" hidden="{{isshow==index?false:true}}">
+            <button bindtap="cancelRelOrder" data-items='{{item}}'>取消订单</button>
+            <button bindtap="callTranser" data-items='{{item}}'>呼叫接单人</button>
+            <button bindtap="confirmRelOrder" data-items='{{item}}'>确认送达</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+
+  <swiper-item>
+    <scroll-view scroll-y="true" class="tableView" style='height:{{scrollHeight}}px'>
+      <view class='view2' wx:for="{{accOrderList}}" data-id='{{index}}' bindtap='showButton1'>
+        <view data-items='{{item}}'>
+          <view class="flexItem rowStyle tableViewCellHeader heightAndWidth">
+            <image class="orderImage marginLeft12" src="../images/dingdan.png"></image>
+            <label class="color54 fontSize12">订单编号: {{ item.orderId }}</label>
+          </view>
+
+          <view class="flexItem rowStyle personInfo">
+            <view class="flexItem rowStyle marginLeft12 centers">
+              <image class="userHeader" src="{{ item.receiverAvatarUrl }}"></image>
+              <label class="color54 fontSize12">{{ item.receiverName }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginRight12 centers" catchtap="callEvent">
+              <image class="call" src="../images/call.png"></image>
+              <label class="color54 fontSize12">{{ item.receiverPhone }}</label>
+            </view>
+          </view>
+
+          <view class=" heightAndWidth flexItem columnStyle tableViewCell">
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">快递站点</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.start }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">收货地址</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.receiverAddress }} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">大小金额</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.size[0] }}{{item.size[1]}},¥{{item.money}} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">下单时间</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.createdAt }}</label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12 marginRight12">订单状态</label>
+
+              <label class="colorred color54 fontSize12 marginRight12">{{item.transerPhone}}  {{ item.orderStatus }}</label>
+            </view>
+          </view>
+
+          <view class="flexItem rowStyle centers orderStatus ">
+            <label class="color54 fontSize12">备注</label>
+            <image class="statusImage"></image>
+            <label class="statusText fontSize14">{{ item.remark }}</label>
+          </view>
+          <view class="flexItem rowStyle centers btn" hidden="{{isshow1==index?false:true}}">
+            <button bindtap="cancelAccOrder" data-items='{{item}}'>取消订单</button>
+            <button bindtap="callReceiver" data-items='{{item}}'>呼叫</button>
+            <button bindtap="toHere" data-items='{{item}}'>位置导航</button>
+            <button bindtap="confirmAccOrder" data-items='{{item}}'>确认送达</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+
+  <swiper-item>
+    <scroll-view scroll-y="true" class="tableView" style='height:{{scrollHeight}}px'>
+      <view class='view3' wx:for="{{relFinOrderList}}">
+        <view data-items='{{item}}'>
+          <view class="flexItem rowStyle tableViewCellHeader heightAndWidth">
+            <image class="orderImage marginLeft12" src="../images/dingdan.png"></image>
+            <label class="color54 fontSize12">订单编号: {{ item.orderId }}</label>
+          </view>
+
+          <view class="flexItem rowStyle personInfo">
+            <view class="flexItem rowStyle marginLeft12 centers">
+              <image class="userHeader" src="{{ item.receiverAvatarUrl }}"></image>
+              <label class="color54 fontSize12">{{ item.receiverName }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginRight12 centers" catchtap="callEvent">
+              <image class="call" src="../images/call.png"></image>
+              <label class="color54 fontSize12">{{ item.receiverPhone }}</label>
+            </view>
+          </view>
+
+          <view class=" heightAndWidth flexItem columnStyle tableViewCell">
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">快递站点</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.start }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">收货地址</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.receiverAddress }} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">大小金额</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.size[0] }}{{item.size[1]}},¥{{item.money}} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">下单时间</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.createdAt }}</label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">订单状态</label>
+              <label class="colorred color54 fontSize12 marginRight12">{{ item.orderStatus }}</label>
+            </view>
+          </view>
+
+          <view class="flexItem rowStyle centers orderStatus ">
+            <label class="color54 fontSize12">备注</label>
+            <image class="statusImage"></image>
+            <label class="statusText fontSize14">{{ item.remark }}</label>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view scroll-y="true" class="tableView" style='height:{{scrollHeight}}px'>
+      <view class='view4' wx:for="{{accFinOrderList}}" data-index='{{index}}'>
+        <view bindtap='showButton' data-items='{{item}}'>
+          <view class="flexItem rowStyle tableViewCellHeader heightAndWidth">
+            <image class="orderImage marginLeft12" src="../images/dingdan.png"></image>
+            <label class="color54 fontSize12">订单编号: {{ item.orderId }}</label>
+          </view>
+
+          <view class="flexItem rowStyle personInfo">
+            <view class="flexItem rowStyle marginLeft12 centers">
+              <image class="userHeader" src="{{ item.receiverAvatarUrl }}"></image>
+              <label class="color54 fontSize12">{{ item.receiverName }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginRight12 centers" catchtap="callEvent">
+              <image class="call" src="../images/call.png"></image>
+              <label class="color54 fontSize12">{{ item.receiverPhone }}</label>
+            </view>
+          </view>
+
+          <view class=" heightAndWidth flexItem columnStyle tableViewCell">
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">快递站点</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.start }}</label>
+            </view>
+
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">收货地址</label>
+              <label class="color1a fontSize14 marginRight12">{{ item.receiverAddress }} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">大小金额</label>
+              <label class="color54 fontSize12 marginRight12">{{ item.size[0] }}{{item.size[1]}},¥{{item.money}} </label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">下单时间</label>
+              <label class="color54 fontSize12">{{ item.createdAt }}</label>
+            </view>
+            <view class="flexItem rowStyle marginBottom10 cellStyle marginRight12 marginLeft12">
+              <label class="color54 fontSize12">订单状态</label>
+              <label class="colorred color54 fontSize12 marginRight12">{{ item.orderStatus }}</label>
+            </view>
+          </view>
+
+          <view class="flexItem rowStyle centers orderStatus ">
+            <label class="color54 fontSize12">备注</label>
+            <image class="statusImage"></image>
+            <label class="statusText fontSize14">{{ item.remark }}</label>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+</swiper>

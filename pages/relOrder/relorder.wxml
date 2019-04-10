@@ -1,0 +1,60 @@
+<view class='Submit'>
+  <form bindsubmit="submitForm" bindreset='resetForm'>
+    <!-- 选择收货地址 -->
+    <view class='personinfo rowstyle' bindtap='bindPersonInfo'>
+      <view class='address'>
+        <image src='../images/收货地址.png' mode='scaleToFill' style='height:20px;width:20px;'></image>
+      </view>
+      <view style='width:80%;'>
+        <view class='rowstyle' style='display:flex'>
+          <label class='fontsize14'>收货人： {{receiverName}}</label>
+          <space/>
+          <label class='fontsize14'>{{receiverPhone}}</label>
+        </view>
+        <view>
+          <label class='fontsize14'>收货地址： {{address}}</label>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='../images/右.png' mode='scaleToFill' style='height:20px;width:20px;'></image>
+      </view>
+
+    </view>
+    <!-- 快递件类 -->
+    <view class='mod-a mt20'>
+      <view class="mod t-sign-time">
+        <text class="key">大件小件</text>
+        <picker name='size' bindchange="bindSizePickerChange" value="{{index2}}" range="{{arraySize}}">
+          <view class="value" name="types"> {{arraySize[index2]}}
+            <image class="arrow-r" src="../images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 快递站点 -->
+      <view class="mod t-sign-time">
+        <text class="key">快递站点</text>
+        <view name='start'>
+          <view class="value" name="types">{{start}}
+            <image class="arrow-r" src="../images/arrow-r-0.png" bindtap='selectAdd'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 备注 -->
+    <view class="mod-a mt20">
+      <view class="mod-big my-nick">
+        <textarea name="remark" class="weui-textarea" placeholder="备注（选填，取货码或其他信息必填）" value="{{content}}" style="height: 7em" bindinput="setRemark" maxlength="{{noteMaxLen}}" />
+        <view class="chnumber">{{noteNowLen}}/{{noteMaxLen}}</view>
+      </view>
+    </view>
+    <view class="mod-a mt20">
+      <view class="submit-btn">
+        <button class='button' hover-start-time="200" formType="submit">发布订单</button>
+      </view>
+      <view class="reset-btn">
+        <button class='button' hover-start-time="200" formType="reset">重置订单</button>
+      </view>
+    </view>
+  </form>
+</view>
