@@ -1,0 +1,66 @@
+{
+  "pages":[
+    
+    "pages/Search/search",
+    "pages/Start/start",
+    "pages/Orders/orders",
+    "pages/relOrder/relorder",
+    "pages/myInfo/myinfo",
+    "pages/About/about",
+    "pages/Address/address",
+    "pages/Phone/phone",
+    "pages/Phone2/phone2",
+    "pages/addAddress/addaddress",
+    "pages/modifyAddress/modifyaddress",
+    "pages/relOrder/SelectAdd/selectadd",
+    "pages/Route/route",
+    "pages/Route_ride/route_ride",
+    "pages/Route_bus/route_bus",
+    "pages/Route_walk/route_walk"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle":"white"
+  },
+
+"tabBar": {
+  "color": "#888888",
+  "selectedColor": "#09BB07",
+  "backgroundColor": "#ffffff",
+  "borderStyle": "black",
+  "list": [
+    
+    {
+      "pagePath": "pages/Search/search",
+      "text": "首页",
+      "iconPath": "pages/images/订单.png",
+      "selectedIconPath": "pages/images/订单点击2.png"
+    },
+    {
+      "pagePath": "pages/relOrder/relorder",
+      "text": "发布",
+      "iconPath": "pages/images/加.png",
+      "selectedIconPath": "pages/images/发布.png"
+    },
+    {
+      "pagePath": "pages/myInfo/myinfo",
+      "text": "我",
+      "iconPath": "pages/images/我.png",
+      "selectedIconPath": "pages/images/我点击2.png"
+    }
+  ]
+},
+"networkTimeout": {
+  "request": 10000,
+  "downloadFile": 10000,
+  "uploadFile" : 10000,
+  "connectSocket" : 10000
+},
+"permission": {
+  "scope.userLocation": {
+    "desc": "你的位置信息将用于小程序位置接口的效果展示"
+  }
+},
+"debug": true
+}
