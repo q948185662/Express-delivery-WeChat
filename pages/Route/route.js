@@ -2,7 +2,7 @@ var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
 var amapFile = require('../../utils/amap-wx.js');
 // 实例化API核心类
 var qqmapsdk = new QQMapWX({
-  key: '76QBZ-YIREI-J3LGI-5JJOD-VJAXJ-UFBMB' // 必填
+  key: '' // 必填
 });
 
 var myAmapFun = new amapFile.AMapWX({
